@@ -1,0 +1,279 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #270F2D;
+    --rojo: #C70000;
+    --gris: #757575;
+}
+
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+   
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px;
+    
+    font-family: 'Krub', sans-serif;
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+img {
+    width: 100%;
+}
+
+.nav-bg {
+    background-color: var(--primario);
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+
+
+.encabezado {
+    display: grid;
+    
+    grid-template-areas:
+        "logo buscador pedido carrito"
+        "logo menu pedido carrito";
+}
+
+
+.logo {
+    max-width: 20rem;
+    grid-area: logo;
+}
+
+.toggle-menu {
+    display: none;
+}
+
+
+
+.buscar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+ 
+    padding: 1rem;
+    grid-area: buscador;
+}
+
+.buscar input {
+    width: 90%;
+    height: 4rem;
+    padding: 0 2rem;
+    font-size: 1.8rem;
+    color: var(--oscuro);
+    font-weight: normal;
+    outline: none;
+    border-radius: 3rem;
+    
+}
+
+
+.navegacion-principal {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    grid-area: menu;
+}
+
+
+
+.navegacion-principal a {
+    color: var(--blanco);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+
+.navegacion-principal a:hover {
+
+
+    border-bottom: .3rem solid green;
+    padding-bottom: .4rem;
+}
+
+.pedidos {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    grid-area: pedido;
+}
+
+
+.carrito {
+    display: flex;
+    align-items: center;
+    margin-left: 5rem;
+    grid-area: carrito;
+}
+
+.pedidos p,
+.carrito p {
+    font-size: 1rem;
+    color: var(--blanco);
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.pedidos .icono,
+.carrito .icono {
+    cursor: pointer;
+}
+
+
+@media (max-width:1030px) {
+    .encabezado {
+        grid-template-areas:
+            "logo buscador pedido carrito menu";
+    }
+
+  
+    
+    .pedidos p {
+        display: none;
+    }
+
+    .carrito p {
+        display: none;
+    }
+
+    .toggle-menu {
+        top: 3rem;
+        right: 1rem;
+        filter: invert(1);
+        cursor: pointer;
+        margin: 1rem;
+        grid-area: menu;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+
+.lista-productos {
+    display: grid;
+    justify-content: center;
+    width: 0%;
+}
+
+@media (min-width:765px) {
+    .lista-productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (min-width:1280px) {
+    .lista-productos {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.producto {
+    height: 57rem;
+    width: 30rem;
+    background-color: antiquewhite;
+    border: 1px solid #000;
+    align-items: center;
+    
+}
+
+.producto-imagen .img-prod {
+    width: 100%;
+}
+
+
+.descuento {
+    background-color: red;
+    width: 35%;
+    height: 5rem;
+    
+
+    position: relative;
+    top: 0;
+    right: 0;
+
+    color: var(--blanco);
+    text-transform: uppercase;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.lista-productos{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+
+}
+
+.enlace {
+    display: none; 
+}
+
+
+@media (max-width:1030px) {
+    .navegacion-principal {
+        width: 30rem; 
+        height: 100%; 
+        background-image: linear-gradient(var(--primario) 100%, var(--oscuro) 0%); 
+        position: absolute;
+        bottom: 0%; 
+        left: -100%; 
+        flex-direction: column; 
+        transition-duration: 0.5s; 
+    }
+
+    #btn-menu:checked~.navegacion-principal { 
+        left: 0%; 
+    }
+
+    .navegacion-principal a { 
+        padding-left: 1rem;
+    }
+}
+
